@@ -1,1 +1,1 @@
-docker build -t prefect-server .
+echo 123123123
