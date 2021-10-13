@@ -29,7 +29,6 @@ LABEL org.label-schema.build-date=${RELEASE_TIMESTAMP}
 RUN apt update && \
     apt install -y gcc git curl tini && \
     mkdir /root/.prefect/ && \
-    pip install --no-cache-dir git+https://github.com/ez4cast/prefect.git@${PREFECT_VERSION} && \
     apt remove -y git && \
     apt clean && apt autoremove -y && \
     rm -rf /var/lib/apt/lists/*
