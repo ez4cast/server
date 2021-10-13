@@ -5,10 +5,10 @@ FROM python:${PYTHON_VERSION}-slim-buster
 
 # Prefect Version, default to MASTER
 ARG PREFECT_SERVER_VERSION
-ENV PREFECT_SERVER_VERSION=${PREFECT_SERVER_VERSION:-master}
+ENV PREFECT_SERVER_VERSION=${PREFECT_SERVER_VERSION:-ez4cast-build}
 
 ARG PREFECT_VERSION
-ENV PREFECT_VERSION=${PREFECT_VERSION:-master}
+ENV PREFECT_VERSION=${PREFECT_VERSION:-ez4cast-build}
 
 ARG RELEASE_TIMESTAMP
 ENV RELEASE_TIMESTAMP=$RELEASE_TIMESTAMP
@@ -29,7 +29,7 @@ LABEL org.label-schema.build-date=${RELEASE_TIMESTAMP}
 RUN apt update && \
     apt install -y gcc git curl tini && \
     mkdir /root/.prefect/ && \
-    pip install --no-cache-dir git+https://github.com/PrefectHQ/prefect.git@${PREFECT_VERSION} && \
+    pip install --no-cache-dir git+https://github.com/ez4cast/prefect.git@${PREFECT_VERSION} && \
     apt remove -y git && \
     apt clean && apt autoremove -y && \
     rm -rf /var/lib/apt/lists/*
