@@ -1,1 +1,1 @@
-echo 123123123
+docker-compose up -d

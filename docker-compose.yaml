@@ -1,0 +1,37 @@
+version: "3.5"
+# Features driving version requirement
+# - networks.name                 3.5
+# - healthcheck.start_period      2.3
+# - healthcheck                   2.1
+
+services:
+  # GraphQL: provides most of the 'mutation' GraphQL API
+  graphql:
+    image: hoangperry/prefect-server:lastest
+    ports:
+      - "4201:4201"
+    command: bash -c "python src/prefect_server/services/graphql/server.py"
+    environment:
+      PREFECT_SERVER_DB_CMD: ${PREFECT_SERVER_DB_CMD:-"echo 'DATABASE MIGRATIONS SKIPPED'"}
+      PREFECT_SERVER__DATABASE__CONNECTION_URL: postgresql://hoang:hoangtest111@14.241.231.87:5432/test_prefect
+      PREFECT_SERVER__HASURA__ADMIN_SECRET: ${PREFECT_SERVER__HASURA__ADMIN_SECRET:-"hoangsecret"}
+      PREFECT_SERVER__HASURA__HOST: ${PREFECT_SERVER__HASURA__HOST:-"14.241.231.87:3000"}
+      PREFECT_CORE_VERSION: ${PREFECT_CORE_VERSION:-"UNKNOWN"}
+    healthcheck:
+      test: curl --fail --silent "http://graphql:4201/health" &> /dev/null || exit 1
+      interval: 20s
+      timeout: 2s
+      retries: 60
+      start_period: 1s
+    restart: always
+
+  # Towel: runs a collection of simple services
+  towel:
+    image: hoangperry/prefect-server:lastest
+    command: "python src/prefect_server/services/towel/__main__.py"
+    environment:
+      PREFECT_SERVER__HASURA__ADMIN_SECRET: ${PREFECT_SERVER__HASURA__ADMIN_SECRET:-"hoangsecret"}
+      PREFECT_SERVER__HASURA__HOST: ${PREFECT_SERVER__HASURA__HOST:-"14.241.231.87:3000"}
+    restart: "always"
+    depends_on:
+      - graphql
