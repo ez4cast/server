@@ -61,7 +61,7 @@ format = "[%(asctime)s] %(levelname)s - %(name)s | %(message)s"
 
 [services]
 
-    host = "14.241.231.87"
+    host = "0.0.0.0"
 
     [services.apollo]
     host = "${services.host}"
