@@ -31,7 +31,7 @@ services:
     command: "python src/prefect_server/services/towel/__main__.py"
     environment:
       PREFECT_SERVER__HASURA__ADMIN_SECRET: ${PREFECT_SERVER__HASURA__ADMIN_SECRET:-"hoangsecret"}
-      PREFECT_SERVER__HASURA__HOST: ${PREFECT_SERVER__HASURA__HOST:-"14.241.231.87:3000"}
+      PREFECT_SERVER__HASURA__HOST: ${PREFECT_SERVER__HASURA__HOST:-"14.241.231.87"}
     restart: "always"
     depends_on:
       - graphql
