@@ -26,12 +26,12 @@ url = 'http://localhost:4200'
 
 [database]
 
-host = "localhost"
+host = "14.241.231.87"
 port = 5432
-name = "prefect_server"
+name = "test_prefect"
 
-username = "prefect"
-password = "pr343ct"
+username = "hoang"
+password = "hoangtest111"
 connection_url = "postgresql://${database.username}:${database.password}@${database.host}:${database.port}/${database.name}"
 
 # hasura user
