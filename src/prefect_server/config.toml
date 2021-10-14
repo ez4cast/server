@@ -42,7 +42,7 @@ hasura_connection_url = "${database.connection_url}"
 
 [hasura]
 
-host = "localhost"
+host = "14.241.231.87"
 port = 3000
 graphql_url = "http://${hasura.host}:${hasura.port}/v1alpha1/graphql"
 ws_url = "ws://${hasura.host}:${hasura.port}/v1alpha1/graphql"
