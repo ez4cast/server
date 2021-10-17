@@ -35,8 +35,8 @@ password = "hoangtest111"
 connection_url = "postgresql://hoang:hoangtest111@14.241.231.87:5432/test_prefect"
 
 # hasura user
-hasura_username = "${database.username}"
-hasura_password = "${database.password}"
+hasura_username = ""
+hasura_password = ""
 hasura_connection_url = "${database.connection_url}"
 
 
