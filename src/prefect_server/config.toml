@@ -64,11 +64,11 @@ format = "[%(asctime)s] %(levelname)s - %(name)s | %(message)s"
     host = "0.0.0.0"
 
     [services.apollo]
-    host = "${services.host}"
+    host = "14.241.231.87"
     port = 4200
 
     [services.graphql]
-    host = "${services.host}"
+    host = "14.241.231.87"
     port = 4201
     debug = false
     path = "/graphql/"
