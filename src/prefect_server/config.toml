@@ -35,8 +35,8 @@ password = "hoangtest111"
 connection_url = "postgresql://hoang:hoangtest111@14.241.231.87:5432/test_prefect"
 
 # hasura user
-hasura_username = ""
-hasura_password = ""
+hasura_username = "${database.username}"
+hasura_password = "${database.password}"
 hasura_connection_url = "${database.connection_url}"
 
 
@@ -44,8 +44,8 @@ hasura_connection_url = "${database.connection_url}"
 
 host = "14.241.231.87"
 port = 3000
-graphql_url = "http://${hasura.host}:${hasura.port}/v1alpha1/graphql"
-ws_url = "ws://${hasura.host}:${hasura.port}/v1alpha1/graphql"
+graphql_url = "http://${hasura.host}:${hasura.port}/v1/graphql"
+ws_url = "ws://${hasura.host}:${hasura.port}/v1/graphql"
 db_url = "${database.hasura_connection_url}"
 execute_retry_seconds = 10
 
