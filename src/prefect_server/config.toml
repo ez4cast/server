@@ -32,7 +32,7 @@ name = "test_prefect"
 
 username = "hoang"
 password = "hoangtest111"
-connection_url = "postgresql://${database.username}:${database.password}@${database.host}:${database.port}/${database.name}"
+connection_url = "postgresql://hoang:hoangtest111@14.241.231.87:5432/test_prefect"
 
 # hasura user
 hasura_username = "${database.username}"
