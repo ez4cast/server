@@ -21,7 +21,7 @@ insert_many_batch_size = 200
 user_config_path = "~/.prefect_server/config.toml"
 
 [api]
-url = 'http://14.241.231.87:4200'
+url = 'localhost:4200'
 
 
 [database]
